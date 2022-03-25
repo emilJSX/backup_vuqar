@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    {% for i in saytinbasligi %}
+    <title>{{ i.title }}</title>
+    {% endfor %}
+
+    <!-- Favicon Icon -->
+    {% for i in saytibbasligiicon %}
+    <link rel="shortcut icon" href="{{ i.icon.url }}">
+    {% endfor %}
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awsome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <style>
+        @media (max-width: 575.98px) {
+            .header-area .info-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <header>
+        <div class="header-area">
+            <!-- info bar -->
+            <div class="info-bar">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="contact-box">
+                                {% for i in tel_mail_mekan %}
+                                <span><i class="fas fa-phone-alt"></i> +994 55 354 79 82</span>
+                                <span class="separator">|</span>
+                                <span><i class="icofont-envelope"></i> {{ i.email }}</span>
+                                <span class="separator">|</span>
+                                <span><i class="icofont-location-pin"></i>{{ i.mekan }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="lan_wrapper">
+                                <br>
+                                <div class="btn-box d-flex align-items-center">
+                                    <a class="btn1" href="{% url 'appoinment' %}">Qəbula Yazıl</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="container-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2 col-xl-2 col-md-3 col-4">
+                                <div class="logo">
+                                    {% for i in loqo %}
+                                    <a href="{% url 'homepage' %}"> <img src="{{ i.loqo.url }}" alt=""></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-8 d-none d-lg-block">
+                                <nav id="main-menu">
+                                    <ul class="main-menu">
+                                        <li><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                                        <li><a href="{% url 'about' %}">Haqqımızda</a></li>
+                                        <li><a href="{% url 'service' %}">Xidmətlər</a></li>
+                                        <li><a href="{% url 'bloq' %}">Bloq</a></li>
+                                        <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                           
+                        </div>
+                        <!-- mobile-menu -->
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- breadcrumb area -->
+    <div class="breadcrumb-area" style="background-image: url('{% static 'assets/images/breadcrumb.png' %}');">
+        <div class="container">
+            <div class="row justify-content-center">
+                <nav aria-label="breadcrumb">
+                    <h2 class="page-title">Əlaqə səhifəsi</h2>
+                    <ol class="breadcrumb text-center">
+                        <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Əlaqə</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- mcontact section -->
+    <div class="mcontact-section padding-top-120 padding-bottom-115">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-xl-6  wow fadeInUp">
+                    <div class="mcontact-left">
+                        <div class="common-title">
+                            <h2 class="margin-bottom-20">Bizimlə əlaqə qurun</h2>
+                        </div>
+                        <div class="inner-con margin-bottom-30">
+                            <div class="icon-box">
+                                <span><i class="icofont-ui-call"></i></span>
+                            </div>
+                            <div class="cont-box">
+                                <h5>Əlaqə nömrə <span>__</span></h5>
+                                <h3>+994 55 354 79 82</h3>
+                            </div>
+                        </div>
+                        <div class="support-box">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-6">
+                                    <div class="single-sup">
+                                        <div class="icon-box">
+                                            <span><i class="icofont-location-pin"></i></span>
+                                        </div>
+                                        <h4 class="margin-bottom-20">Məkan</h4>
+                                        {% for i in tel_mail_mekan %}
+                                        <p>{{ i.mekan }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="single-sup">
+                                        <div class="icon-box">
+                                            <span><i class="icofont-envelope"></i></span>
+                                        </div>
+                                        <h4 class="margin-bottom-20">E-poçt</h4>
+                                        {% for i in tel_mail_mekan %}
+                                        <p>{{ i.email }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-6 wow fadeInUp">
+                    <div class="mcontact-right">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.3837750424873!2d49.81661751535452!3d40.37818617936961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d94f8074dd9%3A0x787a66e877874f26!2zTcmZcmvJmXppIEfDtm1yw7xrIEhvc3BpdGFsxLE!5e0!3m2!1sru!2s!4v1646121138634!5m2!1sru!2s"
+                            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mconform section -->
+    <div class="mconform-section padding-bottom-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 wow fadeInLeft">
+                    <div class="mconform-left">
+                        {% for i in form_sekil %}
+                        <img src="{{ i.foto.url }}" alt="">
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight">
+                    <div class="common-title margin-bottom-25">
+                        <h2><span>Anketi doldurun</span></h2>
+                    </div>
+                    <div class="mconform-right">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input placeholder="Ad və Soyad" required class="inputBox" name="adtext" type="text">
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <input class="inputBox" placeholder="E-poçt" name="mal" required type='email'>
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <input class="inputBox" placeholder="Telefon nömrəsi" name="telefon" required type='tel'>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="inputBox" name="subject" placeholder="Müraciət"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn2" type="submit">Göndər</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- subs area -->
+    <div class="subs-area">
+        <div class="container">
+            <div class="row subs-wrapper">
+                <div class="subs-shape">
+                    <img src="{% static 'assets/images/subs-vec.png' %}" alt="" class="vec1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer area -->
+    <footer>
+        <div class="footer-area">
+            <div class="foo_top padding-bottom-65">
+                <div class="foo_top_shapes">
+                    <img src="{% static 'assets/images/foo-vec.png' %}" alt="" class="vec1">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <div class="logo">
+                                    {% for i in loqo %}
+                                    <a href="{% url 'homepage' %}"> <img src="{{ i.loqo.url }}" alt=""></a>
+                                    {% endfor %}
+                                </div>
+                                {% for i in footer %}
+                                <p>{{ i.metn }}</p>
+                                {% endfor %}
+                                <div class="social-links">
+                                    {% for i in sosial %}
+                                    <a href="{{ i.facebook }}"><span><i class="icofont-facebook"></i></span></a>
+                                    <a href="{{ i.youtube }}"><span><i class="icofont-youtube"></i></span></a>
+                                    <a href="{{ i.instagram }}"><span><i class="icofont-instagram"></i></span></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Linklər</h4>
+                                    <ul>
+                                        <li><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                                        <li><a href="{% url 'about' %}">Haqqımızda</a></li>
+                                        <li><a href="{% url 'service' %}">Xidmətlər</a></li>
+                                        <li><a href="{% url 'bloq' %}">Bloq</a></li>
+                                        <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Xidmətlərimiz</h4>
+                                <ul>
+                                    {% for i in service %}
+                                    <li><a href="{% url 'serviceapp:services-detail' pk=i.id %}">{{ i.basliq }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Əlaqə</h4>
+                                <ul>
+                                    {% for i in tel_mail_mekan %}
+                                    <li>
+                                        <span><i class="icofont-phone"></i></span> +994 55 354 79 82
+                                    </li>
+                                    <li>
+                                        <span><i class="icofont-email"></i></span> {{ i.email }}
+                                    </li>
+                                    <li>
+                                        <span><i class="icofont-ui-home"></i></span>
+                                        {{ i.mekan }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foo_btm">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div class="copyright-text">
+                                <span>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> Bütün hüquqlar
+                                    qorunur |
+                                    <a href="https://vrproduction.az/">@VRproduction</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- scroll to up -->
+    <div class="scrollup"><i class="fas fa-angle-double-up"></i></div>
+
+    <!-- Javascript Files -->
+    <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/easing.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    {% for i in saytinbasligi %}
+    <title>{{ i.title }}</title>
+    {% endfor %}
+
+    <!-- Favicon Icon -->
+    {% for i in saytibbasligiicon %}
+    <link rel="shortcut icon" href="{{ i.icon.url }}">
+    {% endfor %}
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awsome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <style>
+        @media (max-width: 575.98px) {
+            .header-area .info-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <header>
+        <div class="header-area">
+            <!-- info bar -->
+            <div class="info-bar">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="contact-box">
+                                {% for i in tel_mail_mekan %}
+                                <span><i class="fas fa-phone-alt"></i> +994 55 354 79 82</span>
+                                <span class="separator">|</span>
+                                <span><i class="icofont-envelope"></i> {{ i.email }}</span>
+                                <span class="separator">|</span>
+                                <span><i class="icofont-location-pin"></i>{{ i.mekan }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="lan_wrapper">
+                                <br>
+                                <div class="btn-box d-flex align-items-center">
+                                    <a class="btn1" href="{% url 'appoinment' %}">Qəbula Yazıl</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="container-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2 col-xl-2 col-md-3 col-4">
+                                <div class="logo">
+                                    {% for i in loqo %}
+                                    <a href="{% url 'homepage' %}"> <img src="{{ i.loqo.url }}" alt=""></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-8 d-none d-lg-block">
+                                <nav id="main-menu">
+                                    <ul class="main-menu">
+                                        <li><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                                        <li><a href="{% url 'about' %}">Haqqımızda</a></li>
+                                        <li><a href="{% url 'service' %}">Xidmətlər</a></li>
+                                        <li><a href="{% url 'bloq' %}">Bloq</a></li>
+                                        <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                           
+                        </div>
+                        <!-- mobile-menu -->
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- breadcrumb area -->
+    <div class="breadcrumb-area" style="background-image: url('{% static 'assets/images/breadcrumb.png' %}');">
+        <div class="container">
+            <div class="row justify-content-center">
+                <nav aria-label="breadcrumb">
+                    <h2 class="page-title">{{ bloging.basliq }}</h2>
+                    <ol class="breadcrumb text-center">
+                        <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Daha ətraflı</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- blog_wrapper -->
+    <div class="blog-wrapper blog-single-wrapper padding-top-120 padding-bottom-70">
+        <div class="container">
+            <div class="row">
+                <!-- main content -->
+                <div class="col-lg-9">
+                    <!-- simple blog -->
+                    <div class="blog-content-area wow fadeInUp">
+                        <div class="single-blog-content">
+                            <div class="img-box">
+                                <img src="{{ bloging.foto.url }}" alt="">
+                            </div>
+                            <div class="cont-box">
+                                <ul class="meta-box">
+                                    <li><span><i class="icofont-ui-calendar"></i></span>{{ bloging.vaxt }}</li>
+                                </ul>
+                                <h3 class="margin-top-20">{{ bloging.basliq }}</h3>
+                                <p class="margin-top-20">{{ bloging.metn }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- blog-comment-form -->
+                    <div style="display: none !important;" class="blog-comment-form wow fadeInUp d-none">
+                        <div class="blog-title">
+                            <h4>Leave your thought here</h4>
+                        </div>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-wrapper">
+                                        <span class="f-icon"><i class="icofont-ui-user"></i></span>
+                                        <input class="inputBox" type="text" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-wrapper">
+                                        <span class="f-icon"><i class="icofont-email"></i></span>
+                                        <input class="inputBox" type="email" placeholder="Email">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input-wrapper">
+                                        <span class="f-icon text-icon"><i class="icofont-speech-comments"></i></span>
+                                        <textarea class="inputBox" name="message" placeholder="Comment"
+                                            id="comment-form"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn1">post comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- sidebar -->
+                <div class="col-lg-3">
+                    <div class="blog-sidebar-area">
+                        <div class="row align-items-baseline">
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-12 justify-content-self-center wow fadeInUp">
+                                <!-- popular Post -->
+                                <div class="single-sidebar recent-post-widget">
+                                    <h5 class="margin-bottom-20">Diqər Bloqlar</h5>
+                                    {% for i in blog %}
+                                    <div class="single-rp">
+                                        <div class="row align-items-center">
+                                            <div class="col-4">
+                                                <div class="img-box">
+                                                    <a href="{% url 'blogapp:blog-detail' pk=i.id %}"> <img src="{{ i.foto.url }}"
+                                                            alt=""></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="cont-box">
+                                                    <a href="{% url 'blogapp:blog-detail' pk=i.id %}">
+                                                        <span class="title">
+                                                            {{ i.basliq }}
+                                                        </span>
+                                                    </a>
+
+                                                    <a href="{% url 'blogapp:blog-detail' pk=i.id %}">
+                                                        <span class="meta-date">
+                                                            <span>
+                                                                <i class="icofont-ui-calendar"></i></span>
+                                                            {{ i.vaxt }}
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subs-area">
+        <div class="container">
+            <div class="row subs-wrapper">
+                <div class="subs-shape">
+                    <img src="{% static 'assets/images/subs-vec.png' %}" alt="" class="vec1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer area -->
+    <footer>
+        <div class="footer-area">
+            <div class="foo_top padding-bottom-65">
+                <div class="foo_top_shapes">
+                    <img src="{% static 'assets/images/foo-vec.png' %}" alt="" class="vec1">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <div class="logo">
+                                    {% for i in loqo %}
+                                    <a href="{% url 'homepage' %}"> <img src="{{ i.loqo.url }}" alt=""></a>
+                                    {% endfor %}
+                                </div>
+                                {% for i in footer %}
+                                <p>{{ i.metn }}</p>
+                                {% endfor %}
+                                <div class="social-links">
+                                    {% for i in sosial %}
+                                    <a href="{{ i.facebook }}"><span><i class="icofont-facebook"></i></span></a>
+                                    <a href="{{ i.youtube }}"><span><i class="icofont-youtube"></i></span></a>
+                                    <a href="{{ i.instagram }}"><span><i class="icofont-instagram"></i></span></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Linklər</h4>
+                                    <ul>
+                                        <li><a href="{% url 'homepage' %}">Ana səhifə</a></li>
+                                        <li><a href="{% url 'about' %}">Haqqımızda</a></li>
+                                        <li><a href="{% url 'service' %}">Xidmətlər</a></li>
+                                        <li><a href="{% url 'bloq' %}">Bloq</a></li>
+                                        <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Xidmətlərimiz</h4>
+                                <ul>
+                                    {% for i in service %}
+                                    <li><a href="{% url 'serviceapp:services-detail' pk=i.id %}">{{ i.basliq }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="foo-widget">
+                                <h4 class="margin-bottom-15">Əlaqə</h4>
+                                <ul>
+                                    {% for i in tel_mail_mekan %}
+                                    <li>
+                                        <span><i class="icofont-phone"></i></span> + {{ i.telefon }}
+                                    </li>
+                                    <li>
+                                        <span><i class="icofont-email"></i></span> {{ i.email }}
+                                    </li>
+                                    <li>
+                                        <span><i class="icofont-ui-home"></i></span>
+                                        {{ i.mekan }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foo_btm">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div class="copyright-text">
+                                <span>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> Bütün hüquqlar
+                                    qorunur |
+                                    <a href="https://vrproduction.az/">@VRproduction</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- scroll to up -->
+    <div class="scrollup"><i class="fas fa-angle-double-up"></i></div>
+
+    <!-- Javascript Files -->
+    <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/easing.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from html.softtechitltd.com/physicmed/physicmed/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Jan 2022 15:06:30 GMT -->
+</html>
